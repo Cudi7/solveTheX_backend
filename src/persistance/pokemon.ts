@@ -106,7 +106,6 @@ export const deletePokemon = async (id: string) => {
     const deletedPokemon = await db?.run(`DELETE FROM pokemons
     WHERE id = ${id}`);
 
-    console.log(deletedPokemon);
 
     await db?.close();
     return deletedPokemon?.changes === 0

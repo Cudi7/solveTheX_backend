@@ -11,8 +11,6 @@ export const lengthIsEqual = (
 export const validateChanges = (
   deletedPokemonsArray: (ISqlite.RunResult<Statement> | undefined)[]
 ) => {
-  console.log(deletedPokemonsArray.length);
-  console.log(deletedPokemonsArray);
   return deletedPokemonsArray.every(
     (deletedPokemon) => deletedPokemon?.changes === 1
   );

@@ -13,7 +13,8 @@ export const pokemonExists = async (
   const existingPokemon = await checkPokemonExists(pokemonData, id);
 
   if (id) {
-    existingPokemon ? next() : res.sendStatus(400); //updating
+    const duplicatedName = checkPokemonExists(pokemonData, "")
+    existingPokemon && !duplicatedName ? next() : res.sendStatus(400); //updating
   } else {
     existingPokemon ? res.sendStatus(400) : next(); //creating
   }
